@@ -1,97 +1,96 @@
 <template>
   <div class="hello">
-    <header>
-      <span>{{ msg }}</span> 
 
-    </header>
-   
-    
-    <div>原本数组：
-      <span v-for="i in items">{{i}} </span>
-    </div>
-    <div>通过冒泡排序:
-      <span v-for="i in buble(items)">{{i}} </span>
-    </div>
-     <div>通过选择排序:
-      <span v-for="i in selectSort(items)">{{i}} </span>
+    <div class="wrapper">
+      <section class="content">
+        <header class="header">
+           
+
+        </header>
+        <div class="body">
+          <div class="moon"> 
+          </div> 
+           <img src="../assets/change.png" alt="" class=""> 
+        </div>
+        <footer class="footer"> 
+
+        </footer>
+      </section>
+
     </div>
 
   </div>
 </template>
 
 <script>
+
 export default {
   name: 'li6E05',
   data() {
     return {
       msg: 'li6E05',
-      items: [3, 2, 1, 5, 6, 7, 8, 10] 
+      items: [3, 2, 1, 5, 6, 7, 8, 10]
     }
   },
   methods: {
-    buble: function(myarray) {
-        var plength = myarray.length;
-        for(var i = plength; i >=0; i --){
-          for(var j = 0; j < i; j++){
-            if(myarray[i]<myarray[j]){ 
-              [myarray[i],myarray[j]]=[myarray[j],myarray[i]]
-            }
-          }
-        }
-        return myarray; 
-    },
-    selectSort: function(myarray){
-      var plength = myarray.length;
-      for(var i = 0; i < plength - 1; i ++){
-        for(var j=i+1; j < plength; j ++){
-          if(myarray[i]>myarray[j]){ 
-            [myarray[i],myarray[j]]=[myarray[j],myarray[i]]
-          }
-        } 
-      }
-      return myarray; 
-    },
-    insertSort:function(myarray){
-        
-        return myarray;
-    } 
-  }
-
+  } 
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1,
-h2 {
-  font-weight: normal;
+.wrapper {
+  background: #ededed;
 }
 
+.content {
+  background: #000;
+  margin: 1rem;
+}
+
+.body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.moon {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  background: #f00;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:0 0 10px 10px rgba(255,255,255,0.8);
+  animation:  twinkling 3s infinite alternate; 
+}
+
+@-webkit-keyframes twinkling {
+  from {
+    opacity:0
+  }
+  to {
+    opacity: 100%;
+  }
+  
+}
+@keyframes twinkling {
+  from {
+    opacity:0
+  }
+  to {
+    opacity: 100%;
+  } 
+}
 
 img{
-  max-width: 100%;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
-}
-header{
-  padding:10px;
-  margin:0;
+  width:100%;
+  height:100%;
 
 }
-.hello{
-  text-align: left;
-}
- 
+
+
+
 
 </style>
